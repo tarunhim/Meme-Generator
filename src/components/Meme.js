@@ -2,31 +2,69 @@ import React from 'react';
 import "../App.css";
 
 export default function Meme() {
-    let [res,func] = React.useState("Get a new meme");
+    let [url,func] = React.useState("https://i.imgflip.com/21tqf4.jpg");
+    let [sc,setsc] = React.useState({topText: "", bottomText: ""});
+    let [memes,setApiData] = React.useState([]);
+    
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setApiData(data.data.memes));
+        
+    },[]);
     function handleclick() {
-        func("do you want another meme");
+        let num = Math.floor(Math.random()*100);
+        console.log(memes[num].url);
+        func(memes[num].url);
+    }
+    function contentChange(e) {
+        const{name, value} = e.target;
+        setsc(prev => {
+            return {...prev, [name] : value}
+        })
     }
     
-    
+
     return (
         <main>
-            
+            <div className='form-container'>
                 <input 
                     type="text"
                     placeholder="Top text"
                     className="form--inputs"
+                    onChange={contentChange}
+                    name="topText"
+                    value={sc.topText}
                     />
                 <input
                     type="text"
                     placeholder="Bottom text"
                     className="form--inputs"
+                    onChange={contentChange}
+                    name="bottomText"
+                    value={sc.bottomText}
                     />
                 <button 
                     className="form--button"
                     onClick={handleclick}
                     >
-                    {res}
-                    </button>
+                    Get a new meme
+                </button>
+            </div>
+                <div
+                className="img-container"
+                >
+                <h2
+                className='top-text'
+                >{sc.topText}</h2>
+                <h2
+                className='bottom-text'
+                >{sc.bottomText}</h2>  
+                <img 
+                src={url}
+                />
+                  
+                </div>
             
         </main>
     )

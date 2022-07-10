@@ -1,6 +1,7 @@
 *{
   margin: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .header{
   height: 65px;
@@ -14,10 +15,16 @@
 }
 
 main {
+  width: 90%;
   padding: 36px;
+  
+}
+.form-container{
   display: grid;
   grid-template: 40px 40px / 1fr 1fr;
   gap: 17px;
+  box-sizing: border-box;
+  align-self: center;
 }
 
 .form--button{
@@ -33,9 +40,49 @@ main {
   cursor: pointer;
   
 }
+.form--button:hover{
+  border: 2px solid black;
+}
 
 .form--inputs{
   border-radius: 5px;
   border: 1px solid #D5D4D8;
   text-indent: 10px;
 }
+
+.img-container{
+  margin: 0;
+  margin-top: 10px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.img-container img{
+  position: absolute;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  
+}
+.top-text{
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  color: white;
+  z-index: 1000;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+}
+.bottom-text{
+  position: absolute;
+  left: 30px;
+  bottom: 50px;
+  color: white;
+  z-index: 1000;
+  text-shadow: 0 0 5px black;
+}
+
