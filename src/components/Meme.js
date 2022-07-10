@@ -3,9 +3,8 @@ import "../App.css";
 
 export default function Meme() {
     let [res,func] = React.useState("Get a new meme");
-    let flag = true;
     function handleclick() {
-        func(val => "do you want another meme");
+        func("do you want another meme");
     }
     
     
