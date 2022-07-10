@@ -2,7 +2,11 @@ import React from 'react';
 import "../App.css";
 
 export default function Meme() {
-    
+    let [res,func] = React.useState("Get a new meme");
+    let flag = true;
+    function handleclick() {
+        func(val => "do you want another meme");
+    }
     
     
     return (
@@ -20,8 +24,9 @@ export default function Meme() {
                     />
                 <button 
                     className="form--button"
+                    onClick={handleclick}
                     >
-                    Get new memes
+                    {res}
                     </button>
             
         </main>
