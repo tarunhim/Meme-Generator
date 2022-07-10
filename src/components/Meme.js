@@ -62,6 +62,7 @@ export default function Meme() {
                 >{sc.bottomText}</h2>  
                 <img 
                 src={url}
+                alt="meme"
                 />
                   
                 </div>
