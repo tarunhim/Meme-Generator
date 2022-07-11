@@ -27,6 +27,21 @@ export default function Meme() {
 
     return (
         <main>
+            <div
+                className="img-container"
+                >
+                <h2
+                className='top-text'
+                >{sc.topText}</h2>
+                <h2
+                className='bottom-text'
+                >{sc.bottomText}</h2>  
+                <img 
+                src={url}
+                alt="meme"
+                />
+                  
+                </div>
             <div className='form-container'>
                 <input 
                     type="text"
@@ -51,21 +66,7 @@ export default function Meme() {
                     Get a new meme
                 </button>
             </div>
-                <div
-                className="img-container"
-                >
-                <h2
-                className='top-text'
-                >{sc.topText}</h2>
-                <h2
-                className='bottom-text'
-                >{sc.bottomText}</h2>  
-                <img 
-                src={url}
-                alt="meme"
-                />
-                  
-                </div>
+                
             
         </main>
     )
