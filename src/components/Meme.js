@@ -7,7 +7,7 @@ export default function Meme() {
     let [memes,setApiData] = React.useState([]);
     
     React.useEffect(() => {
-        fetch("https://api.imgflip.com/get_memes")
+        fetch("https://sample-api-bytarun.herokuapp.com/")
         .then(res => res.json())
         .then(data => setApiData(data.data.memes));
         
